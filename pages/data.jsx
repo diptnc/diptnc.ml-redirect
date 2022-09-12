@@ -21,8 +21,9 @@ setData(posts)
 
 <div>
 <ul style={{color:'red'}}>
+
 {data.map((item,index) => {
-return <li key={index}>{item.name.first}</li>
+return <li key={index}>{item.a}</li>
 })}
 </ul>
 
@@ -36,10 +37,12 @@ return <li key={index}>{item.name.first}</li>
 export default Data
 
 export async function getStaticProps() {
-  const res = await axios.get('https://randomuser.me/api/?results=10')
-  const posts = res.data.results
-
  
+//fetch random quotes from api
+const res = await axios.get('https://zenquotes.io/api/quotes')
+
+const posts = await res.data
+
 
   return {
     props: {
