@@ -4,7 +4,7 @@ import axios from 'axios'
 
 
 
-const functions = ({posts}) => {
+const Data = ({posts}) => {
 
 const [data,setData] = useState(posts)
 //random names
@@ -33,7 +33,7 @@ return <li key={index}>{item.name.first}</li>
   )
 }
 
-export default functions
+export default Data
 
 export async function getStaticProps() {
   const res = await axios.get('https://randomuser.me/api/?results=10')
